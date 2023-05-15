@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Kitronik Air Quality Control HAT{% endblock %}
+
+{% block container %}
+
+<div class="header">
+
+	<a href="/"><img id="kitronik-logo" src="/static/Kitronik-Logo.jpg" alt="Kitronik Logo"></a>
+    <h1><b>Air Quality Control HAT - High Power Out</b></h1>
+
+</div>
+
+<div class="main">
+
+	<table border=1 frame=void rules=rows>
+
+		<tr>
+			<th><p><b>Time</b></p></th>
+			<th><b>High Power Out 1</b></th>
+			<th><b>High Power Out 2</b></th>
+		</tr>
+
+		<!-- Access and loop through hpo_data variable passed into the template when rendered -->
+		{% for row in hpo_data %}
+
+			<tr>
+				<!-- Access row variable created in the for loop above -->
+				<td><p>{{ row[0] }}</p></td>
+				<td><p>{{ row[1] }}</p></td>
+				<td><p>{{ row[2] }}</p></td>
+			</tr>
+
+		{% endfor %}
+
+	</table>
+
+</div>
+
+{% endblock %}

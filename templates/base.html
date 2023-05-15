@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Our CSS-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <!-- Our Favicon-->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.webp') }}">
+
+    <title>{% block title %} {% endblock %}</title>
+
+  </head>
+  <body>
+    
+    <div class="container">{% block container %} {% endblock %}</div>
+
+  </body>
+</html>

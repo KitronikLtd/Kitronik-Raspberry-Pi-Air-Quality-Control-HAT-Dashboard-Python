@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% block title %}Kitronik Air Quality Control HAT{% endblock %}
+
+{% block container %}
+
+<div class="header">
+
+	<a href="/"><img id="kitronik-logo" src="/static/Kitronik-Logo.jpg" alt="Kitronik Logo"></a>
+    <h1><b>Air Quality Control HAT</b></h1>
+	<a href="/download/all"><img id="download-icon" src="/static/Download-Icon.jpg" alt="Download Data Icon"></a>
+
+</div>
+
+<div class="main">
+
+	<div class="left-column">
+
+		<div class="card">
+			<!-- Access bme688 variable passed into the template when rendered -->
+			<div class="card-header"><b>BME688 - {{ bme688[0] }}</b></div>
+			<div class="card-main">
+				<p>Temperature: {{ bme688[1] }}&#8451;</p>
+				<p>Pressure: {{ bme688[2] }}Pa</p>
+				<p>Humidity: {{ bme688[3] }}%</p>
+				<p>eCO2: {{ bme688[4] }}ppm</p>
+				<p>Air Quality: {{ bme688[5] }}%</p>
+				<p>Air Quality Score: {{ bme688[6] }}</p>
+				<a href="/bme688"><button class="card-button card-left">View Data</button></a>
+				<form action="/bme688/measureData" method="POST">
+					<button class="card-button card-right" type="submit">Update</button>
+				</form>
+			</div>
+		</div>
+
+		<div class="card">
+			<!-- Access adc variable passed into the template when rendered -->
+			<div class="card-header"><b>ADC - {{ adc[0] }}</b></div>
+			<div class="card-main">
+				<p>ADC 0: {{ adc[1] }}</p>
+				<p>ADC 1: {{ adc[2] }}</p>
+				<p>ADC 2: {{ adc[3] }}</p>
+				<a href="/adc"><button class="card-button card-left">View Data</button></a>
+				<form action="/adc/measureData" method="POST">
+					<button class="card-button card-right" type="submit">Update</button>
+				</form>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="right-column">
+
+		<div class="card">
+			<!-- Access servo variable passed into the template when rendered -->
+			<div class="card-header"><b>Servo - {{ servo[0] }}</b></div>
+			<div class="card-main">
+				<form action="/servo/set" method="POST">
+					<p class="card-left" id="servo-label">Servo Angle: {{ servo[1] }}</p>
+					<input class="card-input card-right" id="servo-value" name="servo-value" type="range" min="0" max="180" value="{{ servo[1] }}">
+					<a href="/servo"><button class="card-button card-left" type="button">View Data</button></a>
+					<button class="card-button card-right" type="submit">Update</button>
+				</form>
+			</div>
+		</div>
+
+		<div class="card">
+			<!-- Access zipleds variable passed into the template when rendered -->
+			<div class="card-header"><b>ZIP LEDs - {{ zipleds[0] }}</b></div>
+			<div class="card-main">
+				<form action="/zipleds/set" method="POST">
+					<p class="card-left" id="red-label">Red: {{ zipleds[1] }}</p>
+					<input class="card-input card-right" id="red-value" name="red-value" type="range" min="0" max="255" value="{{ zipleds[1] }}">
+					<p class="card-left" id="green-label">Green: {{ zipleds[2] }}</p>
+					<input class="card-input card-right" id="green-value" name="green-value" type="range" min="0" max="255" value="{{ zipleds[2] }}">
+					<p class="card-left" id="blue-label">Blue: {{ zipleds[3] }}</p>
+					<input class="card-input card-right" id="blue-value" name="blue-value" type="range" min="0" max="255" value="{{ zipleds[3] }}">
+					<p class="card-left" id="brightness-label">Brightness: {{ zipleds[4] }}</p>
+					<input class="card-input card-right" id="brightness-value" name="brightness-value" type="range" min="0" max="100" value="{{ zipleds[4] }}">
+					<a href="/zipleds"><button class="card-button card-left" type="button">View Data</button></a>
+					<button class="card-button card-right" type="submit">Update</button>
+				</form>
+			</div>
+		</div>
+
+		<div class="card">
+			<!-- Access hpo variable passed into the template when rendered -->
+			<div class="card-header"><b>High Power Out - {{ hpo[0] }}</b></div>
+			<div class="card-main">
+				<form action="/hpo/set" method="POST">
+					<p class="card-left" id="hpo1-label">HPO 1: {{ hpo[1] }}</p>
+					<input class="card-input card-right" id="hpo1-value" name="hpo1-value" type="range" min="0" max="100" value="{{ hpo[1] }}">
+					<p class="card-left" id="hpo2-label">HPO 2: {{ hpo[2] }}</p>
+					<input class="card-input card-right" id="hpo2-value" name="hpo2-value" type="range" min="0" max="100" value="{{ hpo[2] }}">
+					<a href="/hpo"><button class="card-button card-left" type="button">View Data</button></a>
+					<button class="card-button card-right" type="submit">Update</button>
+				</form>
+			</div>
+		</div>
+
+	</div>
+
+</div>
+
+<!-- Our JS -->
+<script src="{{ url_for('static', filename='home.js') }}"></script>
+
+{% endblock %}

@@ -1,0 +1,221 @@
+@font-face {
+	font-family: DINPro;
+	src: url(/static/DINPro-Regular.otf);
+}
+
+@font-face {
+	font-family: DINPro;
+	src: url(/static/DINPro-Bold.otf);
+	font-weight: bold;
+}
+
+body {
+	background-color: #FFFFFF;
+	color: #2F333A;
+	font-family: DINPro;
+}
+
+.header {
+	display: block;
+    width: 80%;
+    margin: 16px 10% 0px 10%;
+	float: left;
+}
+
+#kitronik-logo {
+	width: 14%;
+	float: left;
+}
+
+h1 {
+	width: 72%;
+    font-size: 32px;
+    color: #24335a;
+	float:left;
+	text-align: center;
+}
+
+#download-icon {
+	width: 4%;
+	margin: 16px 0 16px 10%;
+	float: left;
+}
+
+.main {
+	display: block;
+    width: 80%;
+    margin: 0px 10% 32px 10%;
+    padding: 0px;
+	float: left;
+}
+
+.left-column {
+	width: 48%;
+	margin-right: 2%;
+	float: left;
+}
+
+.right-column {
+	width: 48%;
+	margin-left: 2%;
+	float: left;
+}
+
+.card {
+	width: 100%;
+	margin: 16px 0;
+	border-radius: 16px;
+	border: none;
+	border-bottom: 6px solid #00A654;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+	float: left;
+}
+
+.card:hover{
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.card-header {
+	text-align: center;
+	font-size: 28px;
+	padding: 5px 10px;
+	border-bottom: 2px solid #2F333A;
+	background-color: #F8F8F8;
+}
+
+.card-main {
+	text-align: center;
+	font-size: 28px;
+	padding: 8px 0;
+	font-size: 20px;
+}
+
+.card-label {
+	width: 60%;
+	margin: 8px 2% 0 18%;
+	float: left;
+	text-align: left;
+}
+
+.card-input {
+	padding: 8px 0px;
+	border: none;
+	height: 20px;
+	background-color: #2F333A;
+	opacity: 0.7;
+	transition: opacity .2s;
+	-webkit-appearance: none;
+	-webkit-transition: .2s;
+	cursor: pointer;
+}
+
+.card-input:hover {
+	opacity: 1;
+}
+
+.card-input::-webkit-slider-thumb {
+	width: 24px;
+	height: 40px;
+	background: #00A654;
+	cursor: pointer;
+	appearance: none;
+	-webkit-appearance: none;
+}
+
+.card-input::-moz-range-thumb {
+	width: 24px;
+	height: 24px;
+	background: #00A654;
+	cursor: pointer;
+}
+
+.card-button {
+	border: none;
+	font-size: 20px;
+	padding: 8px;
+	cursor: pointer;
+}
+
+.card-left {
+	width: 28%;
+	margin: 8px 2% 16px 18%;
+	float: left;
+}
+
+.card-right {
+	width: 28%;
+	margin: 8px 18% 16px 2%;
+	float: left;
+}
+
+.card-middle {
+	width: 28%;
+	margin: 8px 35% 16px 35%;
+	float: left;
+}
+
+table {
+	width: 100%;
+	font-size: 20px;
+	text-align: center;
+}
+
+tr {
+	border: 2px solid #00A654;
+}
+
+@media only screen and (max-width: 1200px) {
+	#kitronik-logo {
+		width: 20%;
+	}
+
+	h1 {
+		width: 64%;
+	}
+
+	#download-icon {
+		width: 6%;
+	}
+
+	.card-left {
+		width: 60%;
+		margin: 8px 2% 0 18%;
+	}
+
+	.card-right {
+		width: 60%;
+		margin: 8px 2% 0 18%;
+	}
+
+	.card-middle {
+		width: 60%;
+		margin: 8px 2% 0 18%;
+	}
+
+	.card {
+		padding-bottom: 16px;
+	}
+}
+
+@media only screen and (max-width: 800px) {
+	#kitronik-logo {
+		width: 24%;
+	}
+
+	h1 {
+		width: 58%;
+	}
+
+	#download-icon {
+		width: 8%;
+	}
+
+	.left-column {
+		width: 100%;
+	}
+
+	.right-column {
+		width: 100%;
+	}
+}
+

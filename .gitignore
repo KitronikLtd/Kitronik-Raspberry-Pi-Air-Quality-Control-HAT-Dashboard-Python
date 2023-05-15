@@ -1,0 +1,4 @@
+__pycache__/
+baselines.txt
+database.db
+KitronikAirQualityControlHAT.py

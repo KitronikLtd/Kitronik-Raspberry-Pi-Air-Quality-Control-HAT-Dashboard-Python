@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Kitronik Air Quality Control HAT{% endblock %}
+
+{% block container %}
+
+<div class="header">
+
+	<a href="/"><img id="kitronik-logo" src="/static/Kitronik-Logo.jpg" alt="Kitronik Logo"></a>
+    <h1><b>Air Quality Control HAT - BME688</b></h1>
+	<a href="/download/bme688"><img id="download-icon" src="/static/Download-Icon.jpg" alt="Download Data Icon"></a>
+
+</div>
+
+<div class="main">
+
+	<table border=1 frame=void rules=rows>
+
+		<tr>
+			<th><p><b>Time</b></p></th>
+			<th><b>Temperature</b></th>
+			<th><b>Pressure</b></th>
+			<th><b>Humidity</b></th>
+			<th><b>eCO2</b></th>
+			<th><b>Air Quality</b></th>
+			<th><b>Air Quality Score</b></th>
+		</tr>
+
+		<!-- Access and loop through bme688_data variable passed into the template when rendered -->
+		{% for row in bme688_data %}
+
+			<tr>
+				<!-- Access row variable created in the for loop above -->
+				<td><p>{{ row[0] }}</p></td>
+				<td><p>{{ row[1] }}&#8451;</p></td>
+				<td><p>{{ row[2] }}Pa</p></td>
+				<td><p>{{ row[3] }}%</p></td>
+				<td><p>{{ row[4] }}ppm</p></td>
+				<td><p>{{ row[5] }}%</p></td>
+				<td><p>{{ row[6] }}</p></td>
+			</tr>
+
+		{% endfor %}
+
+	</table>
+
+</div>
+
+{% endblock %}
