@@ -224,9 +224,9 @@ def get_hpo_data():
 	conn.close()
 	# Set default values if none in the database
 	if hpo1 is None:
-		hpo1 = ["Off", "No data"]
+		hpo1 = ["0", "No data"]
 	if hpo2 is None:
-		hpo2 = ["Off", "No data"]
+		hpo2 = ["0", "No data"]
 	return (hpo1[1], hpo1[0], hpo2[0])
 
 # Retrieves all the High Power Out data
